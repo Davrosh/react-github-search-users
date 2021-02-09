@@ -11,7 +11,7 @@ ReactDOM.render(
     <Auth0Provider
       domain={process.env.REACT_APP_DOMAIN}
       clientId={process.env.REACT_APP_PUBLIC_KEY}
-      redirectUri={window.location.origin}
+      redirectUri={`${window.location.origin}/react-github-search-users`}
       cacheLocation='localstorage'
     >
     <GithubProvider>
