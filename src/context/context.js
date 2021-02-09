@@ -50,6 +50,7 @@ const GithubProvider = ({ children }) => {
       setGithubUser(res1.data);
       setFollowers(res2.data);
       setRepos(res3.data);
+      localStorage.setItem("currentUser", user);
     } catch (err) {
       console.log(err);
       toggleError(true, "No such user!");
@@ -66,7 +67,16 @@ const GithubProvider = ({ children }) => {
   useEffect(checkRequests, [githubUser]);
 
   useEffect(() => {
-    searchGithubUser("ausi");
+    const user = localStorage.getItem("currentUser");
+    if(user) {
+      searchGithubUser(user);
+    }
+    else {
+      const users = ['ausi', 'sdras', 'john-smilga', 'jonasschmedtmann', 'chriscoyier'];
+      const index = Math.floor(Math.random() * users.length); 
+      searchGithubUser(users[index]);
+    }
+    
   }, [searchGithubUser]);
 
   return (
