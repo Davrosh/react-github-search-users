@@ -22,7 +22,7 @@ jobs:
         REACT_APP_DOMAIN: ${{ secrets.REACT_APP_DOMAIN }}
         REACT_APP_PUBLIC_KEY: ${{ secrets.REACT_APP_PUBLIC_KEY }}
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
         BRANCH: gh-pages
         FOLDER: docs
