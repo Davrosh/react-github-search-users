@@ -23,7 +23,7 @@ const Navbar = () => {
       {isUser ? (
         <button
           onClick={() => {
-            logout({ returnTo: window.location.origin });
+            logout({ returnTo: `${window.location.origin}/react-github-search-users`});
           }}
         >
           logout
